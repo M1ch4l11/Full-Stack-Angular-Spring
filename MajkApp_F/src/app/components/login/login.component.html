@@ -1,0 +1,12 @@
+<h1 class="title">Majk&nbsp;APP</h1>
+    <div class="boxButtons">
+        <Button routerLink="/">Login</Button>
+        <Button routerLink="/Register" class="Register">Registration</Button>
+    </div>
+<form class="login">
+    <label id="log" >Log Name</label>
+    <input title="LogName" type="text" #LogName>
+    <label>password</label>
+    <input type="password" #password>
+    <button class="Send" (click)="clickSend(LogName.value, password.value)">Log In</button>
+</form>

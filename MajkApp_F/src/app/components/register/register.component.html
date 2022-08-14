@@ -1,0 +1,17 @@
+<h1 class="title">Majk&nbsp;APP</h1>
+    <div class="boxButtons">
+        <Button routerLink="/">Login</Button>
+        <Button routerLink="/Register" class="Register">Registration</Button>
+    </div>
+<form class="registration">
+    <label>Log Name </label>
+    <input title="LogName" type="text" #LogName>
+    <label>password </label>
+    <input type="password" #password>
+    <label>Full&nbsp;Name </label>
+    <input type="text" #FullName>
+    <label>Email </label>
+    <input type="email" #email pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="email" placeholder="nieco@gmail.com">
+    <button class="Send" (click)="clickSend(LogName.value,password.value,FullName.value,email.value)">Save</button>
+</form>
+
