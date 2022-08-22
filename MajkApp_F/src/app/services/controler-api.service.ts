@@ -19,6 +19,11 @@ export class ControlerAPIService {
     console.log( "Preslo");
   }
 
+  deleteUserById(id: number){
+    const url = `${this.URL}/${id}`;
+   return this.httpClient.delete<User>(url).subscribe(obj => console.log(obj));
+  }
+
   getUsers(){
     return this.usersList;
   }
@@ -28,8 +33,9 @@ export class ControlerAPIService {
     })
   }
  
-  getUserById(LogName: String): Observable<object>{
-    return this.httpClient.get<User>(`${this.URL}/${LogName}`);
+  getUserById(id: number){
+    console.log("Get method " + id);
+    return this.httpClient.get<User>(`${this.URL}/${id}`);
   }
 
   createUser(user: User): Observable<object>{

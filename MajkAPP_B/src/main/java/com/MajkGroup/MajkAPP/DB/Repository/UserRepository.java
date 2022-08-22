@@ -38,15 +38,6 @@ public class UserRepository {
         return  jdbcTemplate.query(sql, userRowMapper);
     }
 
-//    public User get(String logName){
-//        final String sql = "SELECT password FROM user WHERE LogName = " + logName;
-//        try {
-//            return jdbcTemplate.queryForObject(sql, userRowMapper);
-//        } catch (EmptyResultDataAccessException ex){
-//            return null;
-//        }
-//    }
-
     public Integer add(User user){
         final String sql = "INSERT INTO user(FullName,LogName,password,email) values(?,?,?,?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -70,7 +61,7 @@ public class UserRepository {
     }
 
     public Integer delete(int id){
-        final String sql = "DELETE FROM user WHERE id = " + id;
+        final String sql = "DELETE FROM user WHERE id = ?";
         int value = jdbcTemplate.update(sql, id);
         return value;
     }

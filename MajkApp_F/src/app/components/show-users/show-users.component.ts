@@ -16,10 +16,19 @@ export class ShowUsersComponent implements OnInit {
   changeObjtoUser(){
     this.userObjects?.forEach(obj => {
       this.userList?.push({
+        id: obj.id,
         fullName: obj.fullName,
         email: obj.email,
       });
     });
+  }
+
+  deleteuser(id: number){
+    const indexOfelement = this.userList.findIndex(obj => {
+      return obj.id == id;
+    })
+    this.userList.splice(indexOfelement,1);
+    this.service.deleteUserById(id);
   }
 
   ngOnInit(): void {

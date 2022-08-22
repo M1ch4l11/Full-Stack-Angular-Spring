@@ -35,11 +35,11 @@ public class UserREST {
     @GetMapping("{id}")
     public ResponseEntity get(@PathVariable("id") int id){
         User user = userService.get(id);
+        System.out.println("Zbehol get");
         if (user == null){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(user, HttpStatus.OK);
-
     }
 
 
@@ -49,17 +49,10 @@ public class UserREST {
         return new ResponseEntity<>(userList, HttpStatus.OK);
     }
 
-//    @GetMapping("{LogName}")
-//    public ResponseEntity get(@PathVariable("LogName")String LogName){
-//        User user = userService.get(LogName);
-//        if(user != null) return new ResponseEntity<>(user, HttpStatus.OK);
-//        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-//
-//    }
-
     @DeleteMapping("{id}")
     public ResponseEntity delete(@PathVariable("id") int id){
         Integer value = userService.delete(id);
+        System.out.println("zbehlo delete");
         if(value == 1){
             return new ResponseEntity(id, HttpStatus.OK);
         }
