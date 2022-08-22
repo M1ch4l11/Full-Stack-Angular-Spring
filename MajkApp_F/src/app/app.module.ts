@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AcceptRegistComponent } from './components/accept-regist/accept-regist.component';
+import { ShowUsersComponent } from './components/show-users/show-users.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AcceptRegistComponent } from './components/accept-regist/accept-regist.
     RegisterComponent,
     LoginComponent,
     AcceptRegistComponent,
+    ShowUsersComponent,
   ],
   imports: [
     BrowserModule,

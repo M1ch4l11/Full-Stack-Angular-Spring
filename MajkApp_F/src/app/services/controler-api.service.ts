@@ -7,11 +7,25 @@ import { User } from "../user";
   {providedIn: 'root'}
   )
 
-
 export class ControlerAPIService {
+  usersList?: User[];
   private URL = "http://localhost:8080/user";
   constructor(private httpClient: HttpClient) { 
     
+  }
+
+  addUsersToArray(users: User[]| undefined){
+    this.usersList = users;
+    console.log( "Preslo");
+  }
+
+  getUsers(){
+    return this.usersList;
+  }
+  showUsers(){
+    this.usersList?.forEach(object => {
+      console.log(object.fullName + "..." + object.email);
+    })
   }
  
   getUserById(LogName: String): Observable<object>{

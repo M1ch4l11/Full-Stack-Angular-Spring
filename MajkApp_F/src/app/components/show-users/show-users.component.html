@@ -1,0 +1,7 @@
+<h1>All Users from DataBase</h1>
+<div *ngIf="userList">
+  <div *ngFor="let user of userList">
+     <p><strong>FullName</strong>:&nbsp; {{user.fullName}}</p>
+     <p><strong>email</strong>:&nbsp;{{user.email}}</p>
+  </div>
+</div>

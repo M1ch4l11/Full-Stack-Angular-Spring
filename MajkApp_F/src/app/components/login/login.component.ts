@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { iif } from 'rxjs';
 import { loginPass } from 'src/app/loginPass';
 import { ControlerAPIService } from 'src/app/services/controler-api.service';
 import { User } from 'src/app/user';
+import { Router } from '@angular/router';
+import { ShowUsersComponent } from '../show-users/show-users.component';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   logUser: loginPass = {logName: ""};
   correctLogin?: boolean;
   correctPassword?: boolean;
-  constructor(private service: ControlerAPIService) {
+  constructor(private service: ControlerAPIService, private router: Router) {
     
    }
   
@@ -34,9 +35,15 @@ export class LoginComponent implements OnInit {
       };
       if(Object.password == this.logUser.password) {
         this.correctPassword = true; 
+        this.showUsers();
         console.log("Correct password ");
       }
     });
+    this.service.addUsersToArray(this.userList);
+  }
+
+  showUsers(){
+    this.router.navigate(["/users"]);
   }
 
   getAllData(){
